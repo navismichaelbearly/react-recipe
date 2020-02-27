@@ -1,4 +1,4 @@
-const jsonResponse = [
+const recipes = [
     {
        "id":11,
        "name":"Curd Rice",
@@ -54,4 +54,4 @@ const jsonResponse = [
        "updated_at":"2020-02-11T09:32:54.187Z"
     }
  ];
- export jsonResponse;
+ export {recipes};

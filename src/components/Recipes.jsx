@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import data from "../data.json"; 
+import { recipes } from '../inputData';
 
 class Recipes extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class Recipes extends React.Component {
     };
   }
 
+  /*
   componentDidMount() {
     const url = "/api/v1/recipes/index";
     fetch(url)
@@ -22,9 +23,9 @@ class Recipes extends React.Component {
       .then(response => this.setState({ recipes: response }))
       .catch(() => this.props.history.push("/"));
   }
-
+  */
   render() {
-    const { recipes } = this.state;
+    //const { recipes } = this.state;
     const allRecipes = recipes.map((recipe, index) => (
       <div key={index} className="col-md-6 col-lg-4">
         <div className="card mb-4">
