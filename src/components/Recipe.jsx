@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {recipeItems} from "../recipeItems";
 
 class Recipe extends React.Component {
   constructor(props) {
@@ -21,22 +22,24 @@ class Recipe extends React.Component {
         params: { id }
       }
     } = this.props;
-    const url = `/api/v1/show/${id}`;
-    fetch(url)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .then(response => this.setState({ recipe: response }))
-      .catch(() => this.props.history.push("/recipes"));
+    let results;
+     for (let i=0 ; i < recipeItems.length ; i++)
+     {
+       
+         if (recipeItems[i].id == id) {
+             results = recipeItems[i];
+             break;
+         }
+     }
+     this.setState({ recipe: results });
+     //this.props.history.push("/recipes");
   }
 
   render() {
     const { recipe } = this.state;
     let ingredientList = "No ingredients available";
     if (recipe.ingredients.length > 0) {
+      debugger;
       ingredientList = recipe.ingredients
         .split(",")
         .map((ingredient, index) => (

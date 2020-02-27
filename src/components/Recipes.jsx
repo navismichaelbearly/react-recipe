@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { recipes } from '../inputData';
+import { recipes } from '../recipes';
 
 class Recipes extends React.Component {
   constructor(props) {
@@ -9,21 +9,6 @@ class Recipes extends React.Component {
       recipes: []
     };
   }
-
-  /*
-  componentDidMount() {
-    const url = "/api/v1/recipes/index";
-    fetch(url)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .then(response => this.setState({ recipes: response }))
-      .catch(() => this.props.history.push("/"));
-  }
-  */
   render() {
     //const { recipes } = this.state;
     const allRecipes = recipes.map((recipe, index) => (
